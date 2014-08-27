@@ -6,6 +6,7 @@ import (
 	"log"
 	"math/rand"
 	"strings"
+	"time"
 )
 
 var (
@@ -35,6 +36,8 @@ func main() {
 
 func reply(server *ircudf.Server, number, name, reply string) {
 	if number == "376" {
+		log.Println("Quick fix: Waiting 10 seconds")
+		time.Sleep(10 * time.Second)
 		server.Join(chann)
 	}
 }
